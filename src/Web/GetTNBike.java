@@ -9,7 +9,7 @@ public class GetTNBike {
 
 	public Object[][] getBike() throws Exception{
 		
-		String url = "http://tbike-data.tainan.gov.tw/Service/StationStatus/Json";
+		String url = "https://data.ntpc.gov.tw/api/datasets/010e5b15-3823-4b20-b401-b1cf000550c5/json?size=100";
 		
 		InputStream is = new URL(url).openStream(); // 抓取資料
 		
@@ -28,9 +28,9 @@ public class GetTNBike {
 			
 			for(int i=0 ; i<arr.length() ; i++) {
 				JSONObject obj = arr.getJSONObject(i);
-				data[i][0] = obj.getString("StationName");
-				data[i][1] = obj.getInt("AvaliableBikeCount");
-				data[i][2] = obj.getInt("AvaliableSpaceCount");
+				data[i][0] = obj.getString("sna");
+				data[i][1] = obj.getInt("sbi");
+				data[i][2] = obj.getInt("act");
 			}
 			
 		}
